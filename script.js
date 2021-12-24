@@ -5,11 +5,16 @@ let a
 let b 
 let result
 
-const add = (a, b) => { console.log(`Executing ${a} + ${b}`); return a + b }
-const subtract = (a, b) => { console.log(`Executing ${a} - ${b}`); return a - b }
-const multiply = (a, b) => { console.log(`Executing ${a} * ${b}`); return a * b }
-const divide = (a, b) => { console.log(`Executing ${a} / ${b}`); return a / b }
+const add = (a, b) => { return a + b }
+const subtract = (a, b) => {  return a - b }
+const multiply = (a, b) => { return a * b }
 
+const divide = (a, b) => {
+  if (a === 0 || b === 0) {
+    return "Numbers can't be divided by 0. Please try again"
+  } else 
+  return a / b
+}
 
 function operate(a, b, operator) {
   if (operator === "+") {
@@ -20,8 +25,10 @@ function operate(a, b, operator) {
     return multiply(a, b)
   } else if (operator === "/") {
     return divide(a, b)
-  }  
+  }
 }
+
+
 
 
 /* const addButton = document.querySelector(".add-btn")
