@@ -15,37 +15,55 @@ body {
 }
 
 input {
-    border: 1px solid hsl(8, 84%, 57%);
+  border: 1px solid hsl(8, 84%, 57%);
 }
 #number-a,
 #number-b {
-    border: 1px solid hsl(218, 84%, 57%);
-    width: 75px;
+  border: 1px solid hsl(218, 84%, 57%);
+  width: 75px;
 }
 .containing.block {
-    position: relative;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttons-wrapper {
-    position: absolute;
-    justify-content: center;  
+  padding-left: 15px;
+  padding-top: 10px;
+  position: relative;
+  justify-content: center;
+  width: 50%;
 }
 
 .input-wrapper {
-    padding: 16px;
-    justify-content: center;
-    align-items: center;
+  padding: 15px;
+  width: 40%;
+}
+
+.input {
+  padding-top: 7px;
 }
 
 button {
-    height: 20px;
-    border: 1px solid hsl(218, 84%, 57%);
-    background-color: white;
+  height: 20px;
+  border: 1px solid hsl(218, 84%, 57%);
+  background-color: white;
 }
 
 button:hover {
   background-color: hsl(60, 39%, 79%);
+}
+
+p {
+  padding: 20px;
+}
+
+.my.numbers {
+  padding-left: 15px;
+  position: relative;
+  padding-top: 10px;
+  justify-content: center;
+  width: 50%;
 }

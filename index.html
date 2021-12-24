@@ -11,8 +11,17 @@
 <body>
 <div class="containing block">
 
-
-
+<div class="my numbers">
+    <button class="un">1</button>
+    <button class="deux">2</button>
+    <button class="trois">3</button>
+    <button class="quatre">4</button>
+    <button class="cinq">5</button>
+    <button class="six">6</button>
+    <button class="sept">7</button>
+    <button class="huit">8</button>
+    <button class="neuf">9</button>
+</div>
     <div class="buttons-wrapper">
 
 <button class="add-btn">add</button>
@@ -20,20 +29,28 @@
 <button class="multiply-btn">multiply</button>
 <button class="divide-btn">divide</button>
 <br>
-
+</div>
 
   <div class="input-wrapper">
+
+
+      <div class="input two">
 <label for="input">Enter number a here:</label>
 <input type="text" id="number-a">
-<button class="btn-a">Click</button>
-<label for="input">Enter number b here:</label>
-<input type="text" id="number-b">
-<button class="btn-b">Click</button>
-
-<p>Display:</p>
-  </div>
+<button onclick="getInputForDisplay()" class="btn-a">Click</button>
 
 </div>
+<div class="input one">
+<label for="input">Enter number b here:</label>
+<input type="text" id="number-b">
+<button onclick="getInputForDisplay()" class="btn-b">Click</button>
+</div>
+
+<p id="display">Display:</p>
+  </div>
+ 
+
+
 
 </div>
 
