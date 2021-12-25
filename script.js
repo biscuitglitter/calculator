@@ -43,7 +43,6 @@ function operate(a, b, operator) {
 }
 
 
-
 addButton.addEventListener("click", add);
 subtractButton.addEventListener("click", subtract);
 multiplyButton.addEventListener("click", multiply);

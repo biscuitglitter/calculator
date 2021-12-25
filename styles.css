@@ -34,15 +34,18 @@ input {
   padding-top: 10px;
   position: relative;
   justify-content: center;
-  width: 50%;
+  width: 250px;
+  height: 50px;
 }
 
 .input-wrapper {
   padding: 15px;
-  width: 40%;
+  width: 400px;
+  height: 150px;
 }
 
-.input {
+.one,
+.two {
   padding-top: 7px;
 }
 
@@ -57,7 +60,9 @@ button:hover {
 }
 
 p {
-  padding: 20px;
+  padding: 12px;
+  width: 250px;
+  height: 100px;
 }
 
 .my.numbers {
@@ -65,5 +70,6 @@ p {
   position: relative;
   padding-top: 10px;
   justify-content: center;
-  width: 50%;
+  width: 250px;
+  height: 50px;
 }
