@@ -1,63 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>the calculator</title>
-   
-</head>
-<body>
-<div class="containing block">
+  </head>
+  <body>
+    <div class="containing block">
+      <div class="my numbers">
+        <button id="1" onclick="getNumbers()">1</button>
+        <button id="2" onclick="getNumbers()">2</button>
+        <button id="3" onclick="getNumbers()">3</button>
+        <button id="4" onclick="getNumbers()">4</button>
+        <button id="5" onclick="getNumbers()" >5</button>
+        <button id="6"onclick="getNumbers()" >6</button>
+        <button id="7"onclick="getNumbers()" >7</button>
+        <button id="8"onclick="getNumbers()" >8</button>
+        <button id="9"onclick="getNumbers()" >9</button>
+      </div>
+      <div class="buttons-wrapper">
+        <button class="add-btn">add</button>
+        <button class="subtract-btn">subtract</button>
+        <button class="multiply-btn">multiply</button>
+        <button class="divide-btn">divide</button>
+        <button class="equals-btn"> = </button>
 
-<div class="my numbers">
-    <button class="un">1</button>
-    <button class="deux">2</button>
-    <button class="trois">3</button>
-    <button class="quatre">4</button>
-    <button class="cinq">5</button>
-    <button class="six">6</button>
-    <button class="sept">7</button>
-    <button class="huit">8</button>
-    <button class="neuf">9</button>
-</div>
-    <div class="buttons-wrapper">
+        <br />
+      </div>
 
-<button class="add-btn">add</button>
-<button class="subtract-btn">subtract</button>
-<button class="multiply-btn">multiply</button>
-<button class="divide-btn">divide</button>
-<br>
-</div>
+      <div class="input-wrapper">
+        <div class="one">
+          <label for="input">Enter number a here:</label>
+          <input type="text" id="number-a" oninput="getInput()" />
+          <button class="button-a">Click</button>
+        </div>
+        <div class="two">
+          <label for="input">Enter number b here:</label>
+          <input type="text" id="number-b" oninput="getInput()" />
+          <button class="button-b">Click</button>
+        </div>
 
-  <div class="input-wrapper">
+        <p id="display"></p>
+      </div>
+    </div>
 
-
-      <div class="one">
-<label for="input">Enter number a here:</label>
-<input type="text" id="number-a">
-<button class="button-a">Click</button>
-
-</div>
-<div class="two">
-<label for="input">Enter number b here:</label>
-<input type="text" id="number-b">
-<button class="button-b">Click</button>
-</div>
-
-<p id="display">Display: </p>
-  </div>
- 
-
-
-
-</div>
-
-
-<script type="text/javascript" src="script.js"></script>
-    
-</body>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
-
-
