@@ -45,14 +45,7 @@ function operate(a, b, operator) { // this function takes two number, and an ope
   }
 }
 
-
-function getInput() {
-   input_a = document.getElementById("number-a").value;
-   input_b = document.getElementById("number-b").value;
-  liveDisplay.innerHTML = input_a + " " + input_b 
-}
-
-  const btns = document.querySelectorAll('.btn');
+const btns = document.querySelectorAll('.btn');
 for (const btn of btns) {
   btn.addEventListener('click', function() {
     liveDisplay.innerHTML = this.id
@@ -65,7 +58,7 @@ for (const operator of operators)
     liveDisplay.innerHTML = this.id
   })
 
-  liveDisplay.innerHTML = "Display: " + input_a + " " + input_b 
+
 
 
 function getNumbers() {

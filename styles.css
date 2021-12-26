@@ -2,7 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  color: hsl(8, 84%, 57%);
 }
 
 html,
@@ -10,66 +9,85 @@ body {
   height: 100%;
 }
 
-* {
-  margin: 0;
+.the-calculator {
+  background-color: hsl(227, 80%, 39%);
+  border: 2px solid black;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
-input {
-  border: 1px solid hsl(8, 84%, 57%);
-}
-#number-a,
-#number-b {
-  border: 1px solid hsl(218, 84%, 57%);
-  width: 75px;
-}
-.containing.block {
-  position: relative;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
+.the-calculator input {
+  width: 100%;
+  padding: 20px;
+  text-align: right;
+  font-size: 25px;
+  color: black;
+  font-weight: 700;
+  background-color: hsl(227, 2%, 91%);
+  border: none;
 }
 
-.buttons-wrapper {
-  padding-left: 15px;
-  padding-top: 10px;
-  position: relative;
-  justify-content: center;
-  width: 300px;
-  height: 50px;
-}
-
-.input-wrapper {
+.btn,
+.operators {
   padding: 15px;
-  width: 400px;
-  height: 150px;
-}
-
-.one,
-.two {
-  padding-top: 7px;
-}
-
-button {
-  height: 20px;
-  border: 1px solid hsl(218, 84%, 57%);
+  border-radius: 5px;
   background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.operators {
+  background-color: hsl(23, 1%, 21%);
+  color: white;
+}
+.btn:hover {
+  background-color: black;
 }
 
-button:hover {
-  background-color: hsl(60, 39%, 79%);
+.operators:hover {
+  background-color: black;
+}
+.calculator-buttons {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
 }
 
-p {
-  padding: 12px;
-  width: 250px;
-  height: 100px;
+#clear {
+  background-color: hsl(23, 89%, 52%);
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
-.my.numbers {
-  padding-left: 15px;
-  position: relative;
-  padding-top: 10px;
-  justify-content: center;
-  width: 250px;
-  height: 50px;
+#zero {
+  background-color: hsl(23, 89%, 52%);
+  grid-column-start: 2;
+  grid-column-end:4 ;
+}
+
+.divide-button {
+  grid-row-start: 3;
+  grid-column-start: 4;
+}
+
+.multiply-button {
+  grid-row-start: 2;
+  grid-column-start: 4;
+}
+.add-button {
+  grid-row-start: 4;
+  grid-column-start: 4;
+}
+
+.equals-button {
+  grid-row-start: 5;
+  grid-column-start: 4;
+}
+
+#percentage {
+  grid-row-start: 5;
+  grid-column-start: 
 }
