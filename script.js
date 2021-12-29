@@ -14,9 +14,6 @@ let a;
 let b;
 let numberChoice
 
-let input_a
-let input_b
-
 const add = (a, b) => {
   return a + b;
 };
