@@ -66,16 +66,16 @@ body {
   grid-gap: 10px;
 }
 
-#clear {
+.clear {
   background-color: hsl(23, 89%, 52%);
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
-#zero {
+.zero {
   background-color: hsl(23, 89%, 52%);
   grid-column-start: 2;
-  grid-column-end:4 ;
+  grid-column-end: 4 ;
 }
 
 .divide-button {
@@ -97,7 +97,7 @@ body {
   grid-column-start: 4;
 }
 
-#percentage {
+.percentage {
   grid-row-start: 5;
 }
 
