@@ -95,8 +95,19 @@ body {
 .equals-button {
   grid-row-start: 5;
   grid-column-start: 4;
+  background-color: hsl(23, 1%, 21%);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
+.equals-button:hover {
+  background-color: hsl(123, 87%, 41%);
+}
 .percentage {
   grid-row-start: 5;
 }

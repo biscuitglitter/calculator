@@ -12,7 +12,8 @@ const possibleChoices = document.querySelectorAll(".possibleschoices")
 
 let a;
 let b;
-let numberChoice
+let storedValue
+let chosenOperator
 
 const add = (a, b) => {
   return a + b;
@@ -42,35 +43,29 @@ function operate(a, b, operator) { // this function takes two number, and an ope
   }
 }
 
-const btns = document.querySelectorAll('.btn');
-for (const btn of btns) {
-  btn.addEventListener('click', function() {
+// const btns = document.querySelectorAll('.btn');
+// for (const btn of btns) {
+//   btn.addEventListener('click', function() {
+//     liveDisplay.innerHTML = this.id
+//   });
+// }
+
+const numbers = document.querySelectorAll('.numbers');
+for (const number of numbers) {
+  number.addEventListener('click', function() {
     liveDisplay.innerHTML = this.id
-  });
-}
+    storedValue = this.id
+    console.log(storedValue)
+      });
+  }
 
 const operators = document.querySelectorAll(".operators")
 for (const operator of operators)
   operator.addEventListener("click", function () {
     liveDisplay.innerHTML = this.id
+    chosenOperator = this.id
+    console.log(chosenOperator)
   })
-
-
-
-
-function getNumbers() {
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  one = document.getElementById("1").innerHTML
-  two = document.getElementById("2").innerHTML
-  three = document.getElementById("3").innerHTML
-  four = document.getElementById("4").innerHTML
-  five = document.getElementById("5").innerHTML
-  six = document.getElementById("6").innerHTML
-  seven = document.getElementById("7").innerHTML
-  eight = document.getElementById("8").innerHTML
-  nine = document.getElementById("9").innerHTML
-  liveDisplay.innerHTML = one + two + three + four + five + six + seven + eight + nine 
-}
 
 addButton.addEventListener("click", add);
 subtractButton.addEventListener("click", subtract);
