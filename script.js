@@ -10,7 +10,7 @@ const possibleChoices = document.querySelectorAll(".possibleschoices");
 
 let a;
 let b;
-var operator;
+var storedOperator;
 let firstValue;
 let secondValue;
 
@@ -30,16 +30,16 @@ const divide = (a, b) => {
   } else return a / b;
 };
 
-function operate(a, b, operator) {
-  // this function takes two number, and an operator
-  if (operator === "+") {
+function operate(firstValue, secondValue, storedOperator) {
+  // this function takes two number, and a storedOperator
+  if (storedOperator === "+") {
     return add(a, b);
-  } else if (operator === "-") {
+  } else if (storedOperator === "-") {
     return subtract(a, b);
-  } else if (operator === "*") {
+  } else if (storedOperator === "*") {
     return multiply(a, b);
-  } else if (operator === "/") {
-    return divide(a, b);
+  } else if (storedOperator === "/") {
+    return divide(firstValue, secondValue);
   }
 }
 
@@ -48,31 +48,34 @@ for (const number of numbers) {
   number.addEventListener("click", function () {
     liveDisplay.innerHTML = this.id; // when we click on any number, we see it in the display
     firstValue = this.id; // firstValue is the number we clicked
-    a = firstValue; // we're storing at as "a"
+    a = firstValue;
+    getOperator() // we're storing at as "a"
   });
 }
+
+function getOperator() {
+  const operators = document.querySelectorAll(".operators");
+  for (const operator of operators)
+    operator.addEventListener("click", function () {
+      liveDisplay.innerHTML = a;
+      storedOperator = this.id
+      getSecondVal()
+    })
+}
+
 function getSecondVal () {
   const numbers = document.querySelectorAll(".numbers");
   for (const number of numbers) {
     number.addEventListener("click", function () {
       secondValue = this.id;
       b = secondValue;
-      console.log("secondValue, b = " + b + " has been saved!")
     })
   }
 }
 
-const operators = document.querySelectorAll(".operators");
-for (const operator of operators)
-  operator.addEventListener("click", function () {
-    liveDisplay.innerHTML = a; // basically what this line means is that: clicking on an operator after clicking on any number will
-    // make the number get displayed instead of the operator
-    console.log("firstValue, a = " + a + " has been saved!")
-    getSecondVal()   // we're calling getsecondval, which stores the secondvalue b that we choose after clicking on another number
-    liveDisplay.innerHTML = b;
-    console.log("getSecondVal has been called, and b is " + b)
-  });
 
-
-const equalsButton = document.querySelector(".equals");
-equalsButton.addEventListener("click", operate(a, b, operator));
+const equalsButton = document.querySelector(".equals-button");
+equalsButton.addEventListener("click", function () {
+  liveDisplay.innerHTML = operate(firstValue, secondValue, storedOperator)
+  console.log(firstValue, secondValue, storedOperator)
+});
