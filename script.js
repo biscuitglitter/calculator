@@ -5,14 +5,20 @@ const subtractButton = document.querySelector(".subtract-button");
 const multiplyButton = document.querySelector(".multiply-button");
 const divideButton = document.querySelector(".divide-button");
 
-const liveDisplay = document.getElementById("display");
+const liveDisplay = document.getElementById("maindisplay");
+const smallDisplay = document.getElementById("smalldisplay");
 const possibleChoices = document.querySelectorAll(".possibleschoices");
+const operators = document.querySelectorAll(".operators");
+const numbers = document.querySelectorAll(".numbers");
+
 
 let a;
 let b;
-var storedOperator;
-let firstValue;
-let secondValue;
+let result;
+let newOperator = "";
+let storedOperator = "";
+let num1 = "";
+let num2 = "";
 
 const add = (a, b) => {
   return a + b;
@@ -30,52 +36,39 @@ const divide = (a, b) => {
   } else return a / b;
 };
 
-function operate(firstValue, secondValue, storedOperator) {
-  // this function takes two number, and a storedOperator
+function operate(a, b, storedOperator) {
+  // this function takes two numbers, and a storedOperator
   if (storedOperator === "+") {
-    return add(a, b);
+    result = add(a, b);
   } else if (storedOperator === "-") {
-    return subtract(a, b);
+    result = subtract(a, b);
   } else if (storedOperator === "*") {
-    return multiply(a, b);
+    result = multiply(a, b);
   } else if (storedOperator === "/") {
-    return divide(firstValue, secondValue);
+    result = divide(a, b);
   }
+  return result;
 }
 
-const numbers = document.querySelectorAll(".numbers");
-for (const number of numbers) {
-  number.addEventListener("click", function () {
-    liveDisplay.innerHTML = this.id; // when we click on any number, we see it in the display
-    firstValue = this.id; // firstValue is the number we clicked
-    a = firstValue;
-    getOperator() // we're storing at as "a"
-  });
-}
-
-function getOperator() {
-  const operators = document.querySelectorAll(".operators");
-  for (const operator of operators)
-    operator.addEventListener("click", function () {
-      liveDisplay.innerHTML = a;
-      storedOperator = this.id
-      getSecondVal()
-    })
-}
-
-function getSecondVal () {
-  const numbers = document.querySelectorAll(".numbers");
-  for (const number of numbers) {
-    number.addEventListener("click", function () {
-      secondValue = this.id;
-      b = secondValue;
-    })
-  }
-}
+numbers.forEach((number) => {
+  number.addEventListener("click", (e) => {
+    num1 += e.target.innerText
+    liveDisplay.innerText = num1
+    console.log(num1)
+  })
+})
+operators.forEach((operator) => {
+  operator.addEventListener("click", (e) => {
+    storedOperator = newOperator
+    newOperator = e.target.innerText
+console.log("newOperator = " + newOperator + " storedOperator = " + storedOperator)
+  })
+  })
 
 
-const equalsButton = document.querySelector(".equals-button");
-equalsButton.addEventListener("click", function () {
-  liveDisplay.innerHTML = operate(firstValue, secondValue, storedOperator)
-  console.log(firstValue, secondValue, storedOperator)
+
+const equalsbtn = document.querySelector(".equals-button");
+equalsbtn.addEventListener("click", function () {
+  liveDisplay.innerHTML = operate(a, b, storedOperator);
+  console.log(a, storedOperator, b);
 });
