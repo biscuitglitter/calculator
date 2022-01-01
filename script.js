@@ -5,8 +5,8 @@ const subtractButton = document.querySelector(".subtract-button");
 const multiplyButton = document.querySelector(".multiply-button");
 const divideButton = document.querySelector(".divide-button");
 
-const liveDisplay = document.getElementById("maindisplay");
-const smallDisplay = document.getElementById("smalldisplay");
+const mainDisplay = document.querySelector(".maindisplay");
+const smallDisplay = document.querySelector(".smalldisplay");
 const possibleChoices = document.querySelectorAll(".possibleschoices");
 const operators = document.querySelectorAll(".operators");
 const numbers = document.querySelectorAll(".numbers");
@@ -52,23 +52,28 @@ function operate(a, b, storedOperator) {
 
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
-    num1 += e.target.innerText
-    liveDisplay.innerText = num1
-    console.log(num1)
+    num2 = num1
+    num2 += e.target.innerText
+    mainDisplay.innerText = num2
+    console.log("mainNumber = " + num2 + " smallNumber = " + num1)
   })
 })
 operators.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     storedOperator = newOperator
     newOperator = e.target.innerText
-console.log("newOperator = " + newOperator + " storedOperator = " + storedOperator)
+    console.log("newOperator = " + newOperator + " storedOperator = " + storedOperator)
+    clearVar()
   })
   })
 
-
+function clearVar() {
+  mainDisplay.innerText = num2;
+  smallDisplay.innerText += num1 + "" + storedOperator + "" + num2
+}
 
 const equalsbtn = document.querySelector(".equals-button");
 equalsbtn.addEventListener("click", function () {
-  liveDisplay.innerHTML = operate(a, b, storedOperator);
+  mainDisplay.innerHTML = operate(a, b, storedOperator);
   console.log(a, storedOperator, b);
 });

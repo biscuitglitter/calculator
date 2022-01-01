@@ -21,12 +21,13 @@ body {
 .display {
   display: flex;
   justify-content: center;
+  
 }
 
 .container-display {
   margin-top: 10px;
   width: 90%;
-  height: 20%;
+  max-height: 20%;
   text-align: right;
   color: black;
   font-weight: 700;
@@ -34,17 +35,18 @@ body {
   border: none;  
 }
 
+
 .maindisplay {
   height: 10px;
   font-size: 25px;
+  padding: 5px;
 }
 
 .smalldisplay {
+  padding: 5px;
   max-height: 8px;
   font-size: 15px;
 }
-
-
 
 .btn,
 .operators {
@@ -119,9 +121,3 @@ body {
 .percentage {
   grid-row-start: 5;
 }
-
-
-
-
-  
-  
