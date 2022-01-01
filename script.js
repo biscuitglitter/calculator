@@ -12,42 +12,40 @@ const operators = document.querySelectorAll(".operators");
 const numbers = document.querySelectorAll(".numbers");
 
 
-let a;
-let b;
 let result;
 let newOperator = "";
 let storedOperator = "";
 let num1 = "";
 let num2 = "";
 
-const add = (a, b) => {
-  return a + b;
-};
-const subtract = (a, b) => {
-  return a - b;
-};
-const multiply = (a, b) => {
-  return a * b;
-};
+// const add = (num2, num1) => {
+//   return num2 + num1;
+// };
+// const subtract = (num2, num1) => {
+//   return num2 - num1;
+// };
+// const multiply = (num2, num1) => {
+//   return num2 * num1;
+// };
 
-const divide = (a, b) => {
-  if (a === 0 || b === 0) {
-    return "Numbers can't be divided by 0. Please try again";
-  } else return a / b;
-};
+// const divide = (num2, num1) => {
+//   if (num2 === 0 || num1 === 0) {
+//     return "Numbers can't be divided by 0. Please try again";
+//   } else return num2 / num1;
+// };
 
-function operate(a, b, storedOperator) {
-  // this function takes two numbers, and a storedOperator
+function operate(num2, num1, storedOperator) {
   if (storedOperator === "+") {
-    result = add(a, b);
+   result = parseFloat(num2 + num1)
   } else if (storedOperator === "-") {
-    result = subtract(a, b);
+   result = parseFloat(num2 - num1)
   } else if (storedOperator === "*") {
-    result = multiply(a, b);
+   result = parseFloat(num2 * num1)
   } else if (storedOperator === "/") {
-    result = divide(a, b);
-  }
-  return result;
+   result = parseFloat(num2 / num1)
+  }  
+  console.log(result)
+  return mainDisplay.innerText = result;
 }
 
 numbers.forEach((number) => {
@@ -55,25 +53,26 @@ numbers.forEach((number) => {
     num2 = num1
     num2 += e.target.innerText
     mainDisplay.innerText = num2
-    console.log("mainNumber = " + num2 + " smallNumber = " + num1)
   })
 })
+
 operators.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     storedOperator = newOperator
     newOperator = e.target.innerText
-    console.log("newOperator = " + newOperator + " storedOperator = " + storedOperator)
     clearVar()
   })
   })
 
 function clearVar() {
+  console.log("clearVal is fired!")
+  operate(num2, num1, storedOperator)
   mainDisplay.innerText = num2;
   smallDisplay.innerText += num1 + "" + storedOperator + "" + num2
 }
 
-const equalsbtn = document.querySelector(".equals-button");
-equalsbtn.addEventListener("click", function () {
-  mainDisplay.innerHTML = operate(a, b, storedOperator);
-  console.log(a, storedOperator, b);
-});
+
+
+// i think i want my function to go like this
+
+// click on an operator, we verify if we have smallDisplay, if we do then we're rendering maindisplay = operate (maindis+smalldis+operator) if we don't, we will only render the maindisplay
