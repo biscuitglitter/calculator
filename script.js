@@ -16,66 +16,62 @@ let result;
 let newOperator = "";
 let storedOperator = "";
 let num1 = "";
+let currentNumber = "";
+let tempResult = "";
 let num2 = "";
-
-const add = (num2, num1) => {
-  return parseFloat(num2 + num1);
-};
-const subtract = (num2, num1) => {
-  return parseFloat(num2 - num1);
-};
-const multiply = (num2, num1) => {
-  return parseFloat(num2 * num1);
-};
-
-const divide = (num2, num1) => {
-  if (num2 === 0 || num1 === 0) {
-    return "Numbers can't be divided by 0. Please try again";
-  } else return parseFloat(num2 / num1);
-};
 
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
-    num1 = num2;
-    num2 = e.target.innerText;
+    console.log("number has been clicked!")
+    num2 += e.target.innerText;
+    currentNumber = num2
     mainDisplay.innerText = num2;
+    getOperator()
   });
 });
 
-const operate = function () {
-  if (!num2 && !num1) {
-    mainDisplay.innerText = ""
-  } else if (!num1 && num2) {
-    mainDisplay.innerText = num2
-  } else if (num2 && num1 && storedOperator) {
-    if (storedOperator === "+") {
-      result = parseFloat(num2) + parseFloat(num1);
-      mainDisplay.innerText = result
-      console.log(result)
-    } else if (storedOperator === "-") {
-      result = parseFloat(num2) - parseFloat(num1);
-      mainDisplay.innerText = result
-    } else if (storedOperator === "*") {
-      result = parseFloat(num2)  * parseFloat(num1);
-      mainDisplay.innerText = result
-    } else if (storedOperator === "/") {
-      result = parseFloat(num2) / parseFloat(num1)
-      mainDisplay.innerText = result
-    }
-  }  
-}
 
+function getOperator () {
 operators.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     storedOperator = newOperator;
     newOperator = e.target.innerText;
-    operate()
-    seeOutput();
+    mainDisplay.innerText = "";
+    seeSmallDisplay();
   });
 });
+}
 
-function seeOutput() {
-  smallDisplay.innerText = num1 + "" + storedOperator + "" + num2;
+function seeSmallDisplay() {
+  num2 = "";
+  if (!tempResult) {
+    smallDisplay.innerText = currentNumber + "" + newOperator
+  } else if (currentNumber) {
+    smallDisplay.innerText = tempResult + "" + newOperator
+  }
+}
+
+const operate = function () {
+  if (!currentNumber) {
+    mainDisplay.innerText = "";
+  } else if (!tempResult && currentNumber) {
+    mainDisplay.innerText = currentNumber
+  } else if (currentNumber && tempResult && storedOperator) {
+    if (storedOperator === "+") {
+      result = parseFloat(currentNumber) + parseFloat(tempResult);
+      mainDisplay.innerText = result
+      console.log(result)
+    } else if (storedOperator === "-") {
+      result = parseFloat(currentNumber) - parseFloat(tempResult);
+      mainDisplay.innerText = result
+    } else if (storedOperator === "*") {
+      result = parseFloat(currentNumber)  * parseFloat(tempResult);
+      mainDisplay.innerText = result
+    } else if (storedOperator === "/") {
+      result = parseFloat(currentNumber) / parseFloat(tempResult)
+      mainDisplay.innerText = result
+    }
+  }  
 }
 
 // i think i want my function to go like this
