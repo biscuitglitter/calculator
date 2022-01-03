@@ -10,7 +10,7 @@ body {
 }
 
 .the-calculator {
-  background-color: hsl(227, 80%, 39%);
+  background-color: hsl(333, 9%, 95%);
   border: 1.5px solid black;
   max-width: 300px;
   margin: 0 auto;
@@ -31,8 +31,8 @@ body {
   text-align: right;
   color: black;
   font-weight: 700;
-  background-color: hsl(227, 2%, 91%);
-  border: none;  
+  background-color: hsl(226, 21%, 85%);
+  border: 1px solid black;
 }
 
 

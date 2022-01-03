@@ -7,9 +7,10 @@ const divideButton = document.querySelector(".divide-button");
 
 const mainDisplay = document.querySelector(".maindisplay");
 const smallDisplay = document.querySelector(".smalldisplay");
-const possibleChoices = document.querySelectorAll(".possibleschoices");
 const operators = document.querySelectorAll(".operators");
 const numbers = document.querySelectorAll(".numbers");
+
+const equalsbtn = document.querySelector(".equals-button")
 
 let result;
 let newOperator = "";
@@ -33,55 +34,57 @@ const divide = (num2, num1) => {
   } else return parseFloat(num2 / num1);
 };
 
-function operate(num2, num1, storedOperator) {
-          if (storedOperator === "+") {
-    result = parseFloat(num2 + num1);
-  } else if (storedOperator === "-") {
-    result = parseFloat(num2 - num1);
-  } else if (storedOperator === "*") {
-    result = parseFloat(num2 * num1);
-  } else if (storedOperator === "/") {
-    result = parseFloat(num2 / num1) 
-  }
-  }
-  
-function operate(num2, num1, storedOperator) {
-  console.log("operate is fired!")
-    if (storedOperator === "+") {
-      result = parseFloat(num2 + num1);
-    } else if (storedOperator === "-") {
-      result = parseFloat(num2 - num1);
-    } else if (storedOperator === "*") {
-      result = parseFloat(num2 * num1);
-    } else if (storedOperator === "/") {
-      result = parseFloat(num2 / num1)
-    }
-    return result
-  }
-
-
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
-    num2 = num1;
-    num2 += e.target.innerText;
+    num1 = num2;
+    num2 = e.target.innerText;
     mainDisplay.innerText = num2;
   });
 });
+
+const operate = function () {
+  if (!num2 && !num1) {
+    mainDisplay.innerText = ""
+  } else if (!num1 && num2) {
+    mainDisplay.innerText = num2
+  } else if (num2 && num1 && storedOperator) {
+    if (storedOperator === "+") {
+      result = parseFloat(num2) + parseFloat(num1);
+      mainDisplay.innerText = result
+      console.log(result)
+    } else if (storedOperator === "-") {
+      result = parseFloat(num2) - parseFloat(num1);
+      mainDisplay.innerText = result
+    } else if (storedOperator === "*") {
+      result = parseFloat(num2)  * parseFloat(num1);
+      mainDisplay.innerText = result
+    } else if (storedOperator === "/") {
+      result = parseFloat(num2) / parseFloat(num1)
+      mainDisplay.innerText = result
+    }
+  }  
+}
 
 operators.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     storedOperator = newOperator;
     newOperator = e.target.innerText;
-    operate(num2, num1, storedOperator)
-    clearVar();
+    operate()
+    seeOutput();
   });
 });
 
-function clearVar() {
-  mainDisplay.innerText = num2;
-  smallDisplay.innerText += num1 + "" + storedOperator + "" + num2;
+function seeOutput() {
+  smallDisplay.innerText = num1 + "" + storedOperator + "" + num2;
 }
 
 // i think i want my function to go like this
 
-// click on an operator, we verify if we have smallDisplay, if we do then we're rendering maindisplay = operate (maindis+smalldis+operator) if we don't, we will only render the maindisplay
+// click on an operator, we verify if we have smallDisplay, if we do then we're rendering maindisplay =
+// operate(maindis + smalldis + operator) if we don't, we will only render the maindisplay
+
+equalsbtn.addEventListener("click", () => {
+  console.log("equal button has been clicked!")
+  operate()
+})
+
