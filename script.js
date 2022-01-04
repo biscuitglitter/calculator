@@ -16,35 +16,46 @@ let result;
 let newOperator = "";
 let storedOperator = "";
 let storedValue = "";
-var value = "";
+let value = "";
 
 numbers.forEach((number) => {
   number.addEventListener("click", (e) => {
-    storedValue = value
-    mainDisplay.innerText += e.target.innerText;
-    value = mainDisplay.innerText
+    if (newOperator === "") {
+      mainDisplay.innerText += e.target.innerText;
+      storedValue = mainDisplay.innerText
+      mainDisplay.innerText = storedValue;
+    } else if (newOperator !== "") {
+      mainDisplay.innerText += e.target.innerText;
+      value = mainDisplay.innerText
+      mainDisplay.innerText = value;
+    }
   });
+  
 });
-
 
   operators.forEach((operator) => {
     operator.addEventListener("click", (e) => {
       storedOperator = newOperator;
       mainDisplay.innerText = ""
       newOperator = e.target.innerText;
-      smallDisplay.innerText = value + newOperator
+      if (value) {
+        storedOperator = newOperator
+        smallDisplay.innerText = value + newOperator
+      } else if (!value) {
+        storedOperator = newOperator
+        smallDisplay.innerText = storedValue + newOperator
+      }
       operate()
     });
   });
 
 const operate = function () {
-  console.log("operate has been fired!")
   if (!storedValue) {
     result = "";
   } else if (storedValue && !value) {
     result = storedValue;
   } else if (value && storedOperator && storedValue) {
-    if (storedOperator === "+") {
+          if (storedOperator === "+") {
       result = parseFloat(storedValue) + parseFloat(value);
     } else if (storedOperator === "-") {
       result = parseFloat(storedValue) - parseFloat(value);
@@ -52,10 +63,12 @@ const operate = function () {
       result = parseFloat(storedValue)  * parseFloat(value);
     } else if (storedOperator === "/") {
       result = parseFloat(storedValue) / parseFloat(value)
-    }
-  }  
-  smallDisplay.innerText = result
+          }
+  }
+  console.log(result)
 }
 
-
-
+equalsbtn.addEventListener("click", () => {
+  console.log("equal has been clicked!")
+  operate()
+})
