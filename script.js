@@ -45,30 +45,30 @@ numbers.forEach((number) => {
         storedOperator = newOperator
         smallDisplay.innerText = storedValue + newOperator
       }
-      operate()
     });
   });
 
-const operate = function () {
-  if (!storedValue) {
-    result = "";
-  } else if (storedValue && !value) {
-    result = storedValue;
-  } else if (value && storedOperator && storedValue) {
-          if (storedOperator === "+") {
+ const operate = function () {
+    if (storedOperator === "+") {
       result = parseFloat(storedValue) + parseFloat(value);
+      console.log("this function just ran!")
     } else if (storedOperator === "-") {
       result = parseFloat(storedValue) - parseFloat(value);
+      console.log("this function just ran!")
     } else if (storedOperator === "*") {
-      result = parseFloat(storedValue)  * parseFloat(value);
+      console.log("this function just ran!")
+      result = parseFloat(storedValue) * parseFloat(value);
     } else if (storedOperator === "/") {
+      console.log("this function just ran!")
       result = parseFloat(storedValue) / parseFloat(value)
-          }
-  }
-  console.log(result)
-}
+  }          
+  console.log("value = " + value)
+  console.log("storedval = " + storedValue)
+  console.log("stored op = " + storedOperator)
+  return mainDisplay.innerText = result
+ }
 
-equalsbtn.addEventListener("click", () => {
-  console.log("equal has been clicked!")
+ equalsbtn.addEventListener("click", () => {
+  mainDisplay.innerText = "";
   operate()
 })
