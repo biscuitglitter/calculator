@@ -6,4 +6,4 @@ elle peut être utilisée à partir des boutons de la souris
 
 Je fais une pause pour l'instant 
 
-https://miuhuru.github.io/the-calc/
+https://bobpetitchat.github.io/the-calc/
